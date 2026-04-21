@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HadilNails — Montréal</title>
+    <!-- Google Fonts for stylish design -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Flash-prevention: apply saved design & theme before React renders -->
+    <script>
+      (function () {
+        var d = localStorage.getItem('hadil-design');
+        if (d && d !== 'rose') document.documentElement.setAttribute('data-design', d);
+        // clear stale value if unknown
+        else if (d === 'rose') document.documentElement.removeAttribute('data-design');
+        var t = localStorage.getItem('hadil-theme');
+        if (t && t !== 'rose') document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
