@@ -13,7 +13,7 @@ const WIPE = {
     opacity: 1,
     transition: { duration: 0.85, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
   }),
-};
+} as any;
 
 export const LuxeAbout = () => (
   <section className="lx-about" id="about">
