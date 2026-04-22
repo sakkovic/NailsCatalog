@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type TargetAndTransition } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 import { useDesign }      from '../context/DesignContext';
@@ -17,14 +17,14 @@ import { Footer }         from '../components/layout/Footer';
 
 type Dir = 'up' | 'left' | 'right' | 'zoom';
 
-const hidden: Record<Dir, object> = {
+const hidden: Record<Dir, TargetAndTransition> = {
   up:    { opacity: 0, y: 70 },
   left:  { opacity: 0, x: -70 },
   right: { opacity: 0, x: 70 },
   zoom:  { opacity: 0, scale: 0.93 },
 };
 
-const visible: Record<Dir, object> = {
+const visible: Record<Dir, TargetAndTransition> = {
   up:    { opacity: 1, y: 0 },
   left:  { opacity: 1, x: 0 },
   right: { opacity: 1, x: 0 },

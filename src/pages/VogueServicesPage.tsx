@@ -29,7 +29,7 @@ export const VogueServicesPage = () => (
 
     {/* Categories — typographic numbered sections */}
     <div className="vgsp-body">
-      {serviceCategories.map((cat, i) => (
+      {serviceCategories.map((cat) => (
         <motion.div
           key={cat.num}
           className="vgsp-section"
