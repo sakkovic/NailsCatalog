@@ -2,23 +2,28 @@ import { type Lang, type BotResponse, INTENTS, FALLBACK } from './chatKnowledge'
 
 /* ── Language detection ── */
 const FR_MARKERS = [
-  'je', 'tu', 'il', 'elle', 'nous', 'vous', 'ils',
-  'le', 'la', 'les', 'de', 'du', 'un', 'une', 'des',
-  'et', 'ou', 'où', 'est', 'sont', 'avec', 'pour', 'dans', 'sur',
-  'bonjour', 'bonsoir', 'merci', 'oui', 'non', 'aussi', 'mais',
+  'je', 'tu', 'il', 'elle', 'nous', 'vous', 'ils', 'elles',
+  'le', 'la', 'les', 'de', 'du', 'un', 'une', 'des', 'mon', 'ma', 'mes',
+  'et', 'ou', 'où', 'est', 'sont', 'avec', 'pour', 'dans', 'sur', 'par',
+  'bonjour', 'bonsoir', 'salut', 'merci', 'oui', 'non', 'aussi', 'mais',
   'comment', 'combien', 'quand', 'quel', 'quelle', 'quels', 'quelles',
   'prix', 'ongles', 'réserver', 'horaire', 'adresse', 'téléphone',
-  'qu\'est', 'c\'est', 'j\'ai', 'j\'voudrais', 'je veux',
+  'qu\'est', 'c\'est', 'j\'ai', 'je veux', 'je voudrais', 'je cherche',
+  'pouvez', 'puis-je', 'est-ce', 'avez-vous', 'faites-vous', 'acceptez',
+  'première', 'nouveau', 'nouvelle', 'votre', 'vos', 'notre', 'nos',
+  'très', 'bien', 'beaucoup', 'maintenant', 'aujourd', 'demain', 'semaine',
 ];
 
 const EN_MARKERS = [
-  'i', 'you', 'he', 'she', 'we', 'they',
-  'the', 'a', 'an', 'is', 'are', 'was', 'were',
-  'and', 'or', 'but', 'with', 'for', 'in', 'on', 'at',
-  'hello', 'hi', 'thanks', 'please', 'yes', 'no', 'also',
-  'what', 'where', 'when', 'how', 'which', 'who',
-  'price', 'nail', 'book', 'hours', 'address', 'phone',
-  'do you', 'can i', 'i want', 'i would',
+  'i', 'you', 'he', 'she', 'we', 'they', 'my', 'your', 'our',
+  'the', 'a', 'an', 'is', 'are', 'was', 'were', 'have', 'has',
+  'and', 'or', 'but', 'with', 'for', 'in', 'on', 'at', 'by',
+  'hello', 'hi', 'hey', 'thanks', 'please', 'yes', 'no', 'also',
+  'what', 'where', 'when', 'how', 'which', 'who', 'do', 'can', 'could',
+  'price', 'nail', 'nails', 'book', 'hours', 'address', 'phone',
+  'do you', 'can i', 'i want', 'i would', 'i need', 'i\'d like',
+  'would you', 'could you', 'do you have', 'is there', 'are you',
+  'first', 'new', 'time', 'today', 'tomorrow', 'week', 'appointment',
 ];
 
 export function detectLanguage(text: string): Lang {
